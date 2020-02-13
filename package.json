@@ -1,0 +1,43 @@
+{
+  "name": "Rider",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "jetifier": "^1.6.5",
+    "mobx": "^5.15.4",
+    "mobx-react": "^6.1.4",
+    "react": "16.9.0",
+    "react-native": "0.61.5",
+    "react-native-amap-geolocation": "^1.0.4",
+    "react-native-screens": "2.0.0",
+    "react-native-amap3d": "^1.1.1",
+    "react-native-code-push": "^6.0.0",
+    "react-native-gesture-handler": "^1.5.3",
+    "react-native-image-crop-picker": "^0.28.0",
+    "react-native-spring-scrollview": "^2.0.23",
+    "react-native-svg": "^11.0.1",
+    "react-navigation": "^3.5.1",
+    "teaset": "^0.7.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "@react-native-community/eslint-config": "^0.0.7",
+    "babel-jest": "^25.1.0",
+    "eslint": "^6.8.0",
+    "jest": "^25.1.0",
+    "metro-react-native-babel-preset": "^0.58.0",
+    "react-test-renderer": "16.9.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
