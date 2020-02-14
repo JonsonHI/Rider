@@ -3,7 +3,7 @@
  * @Date: 2020-02-13 12:27:44 
  * @Last Modified by: Jonson
  * react-navigation 跳转的封装
- * @Last Modified time: 2020-02-13 12:30:59
+ * @Last Modified time: 2020-02-14 11:12:57
  * 需要使用configRoute包裹
  * export const AppNavigator = StackNavigator(
     configRoute({

@@ -2,7 +2,7 @@
  * @Author: Jonson 
  * @Date: 2020-02-09 14:00:12 
  * @Last Modified by: Jonson
- * @Last Modified time: 2020-02-11 22:33:40
+ * @Last Modified time: 2020-02-14 11:00:47
  */
 
 
@@ -12,7 +12,7 @@ import { createBottomTabNavigator, createStackNavigator, StackViewTransitionConf
 
 import StackViewStyleInterpolator from 'react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator';
 import {StatusBar, Image, Platform } from 'react-native';
-
+import {configRoute} from '../components/NavigationHelp/addToRouteStack'
 
 //所有controller
 import Home from '../pages/Home/Home'
@@ -145,6 +145,7 @@ MyTab.navigationOptions = ({ navigation }) => {
 };
 
 export const AppRouter = createStackNavigator(
+  configRoute(
   {
     //tab
     MyTab: {
@@ -165,7 +166,7 @@ export const AppRouter = createStackNavigator(
     //   screen: Section,
     // },
 
-  },
+  }),
   {
     // 快速定制导航条，所有的导航都是重写的，所以这里会将全部的导航置空
     defaultNavigationOptions: () => ({
