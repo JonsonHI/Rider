@@ -2,7 +2,7 @@
  * @Author: Jonson 
  * @Date: 2020-02-09 13:59:56 
  * @Last Modified by: Jonson
- * @Last Modified time: 2020-02-12 15:22:01
+ * @Last Modified time: 2020-02-15 18:46:05
  */
 
 import React from 'react';
@@ -10,7 +10,7 @@ import { View, ActivityIndicator, AsyncStorage, Alert, Platform, Image, NativeMo
 
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 
-import { inject, observer } from 'mobx-react'
+import { inject, observer, renderReporter } from 'mobx-react'
 import { observable } from 'mobx'
 import { AppRouter } from './AppRouter';
 import {AuthRouter} from './AuthRouter';
@@ -23,6 +23,9 @@ type Props = {
 export default class AuthLoadingScreen extends React.Component<Props> {
   constructor(props) {
     super(props);
+    // renderReporter.on((report) => {
+    //   console.warn(report.component.constructor.name + '  renderTime' + report.renderTime + '  totalTime' + report.totalTime);
+    // });
 
   }
 

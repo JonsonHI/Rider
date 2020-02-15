@@ -2,7 +2,7 @@
  * @Author: Jonson 
  * @Date: 2020-02-09 14:00:12 
  * @Last Modified by: Jonson
- * @Last Modified time: 2020-02-14 11:00:47
+ * @Last Modified time: 2020-02-15 18:41:33
  */
 
 
@@ -10,13 +10,14 @@ import React from 'react';
 import { createBottomTabNavigator, createStackNavigator, StackViewTransitionConfigs, createSwitchNavigator, createAppContainer } from 'react-navigation';
 
 
-import StackViewStyleInterpolator from 'react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator';
+import StackViewStyleInterpolator from 'react-navigation-stack/src/views/StackView/StackViewStyleInterpolator';
 import {StatusBar, Image, Platform } from 'react-native';
 import {configRoute} from '../components/NavigationHelp/addToRouteStack'
 
 //所有controller
 import Home from '../pages/Home/Home'
 import Test from '../pages/Home/Test'
+import Seller from '../pages/Home/Seller'
 import Section from '../pages/Home/section'
 
 const IOS_MODAL_ROUTES = ['Home'];
@@ -44,10 +45,10 @@ const MyTab = createBottomTabNavigator(
         ),
       }
     },
-    Home: {
-      screen: Home,
+    Seller: {
+      screen: Seller,
       navigationOptions: {
-        tabBarLabel: '主页',
+        tabBarLabel: '卖家',
         tabBarIcon: ({ tintColor, focused }) => (
           focused ?
             <Image source={myImg.successPay} />
@@ -161,6 +162,9 @@ export const AppRouter = createStackNavigator(
     },
     Test: {
       screen: Test,
+    },
+    Seller: {
+      screen: Seller,
     },
     // Section: {
     //   screen: Section,
