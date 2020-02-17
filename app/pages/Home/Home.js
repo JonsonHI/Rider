@@ -2,7 +2,7 @@
  * @Author: Jonson 
  * @Date: 2020-02-09 15:46:10 
  * @Last Modified by: Jonson
- * @Last Modified time: 2020-02-16 00:02:09
+ * @Last Modified time: 2020-02-16 22:24:44
  */
 
 import React, { Component, PureComponent, PropTypes } from "react";
@@ -45,7 +45,7 @@ export default class Home extends Component {
 
 
     render() {
-        console.log(RouteHelper)
+        // console.log(RouteHelper)
         return (
             <BaseContainer
                 title={'首页'}
