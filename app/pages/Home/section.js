@@ -2,7 +2,7 @@
  * @Author: Jonson 
  * @Date: 2020-02-09 15:46:32 
  * @Last Modified by: Jonson
- * @Last Modified time: 2020-02-16 22:50:35
+ * @Last Modified time: 2020-02-17 15:38:01
  */
 /*
  * @Author: Jonson 
@@ -51,14 +51,21 @@ export default class Section extends Component {
     render() {
         // console.log(nav)
        return(
-        // <BaseContainer   isHiddenNavBar={true} statusBarStyle={'light-content'}>
-        <SafeAreaView style={{ flex: 1, backgroundColor: 'blue' }}>
+        <BaseContainer
+        title={'首页'}
+        isTopNavigator={true}
+        statusBarStyle={'dark-content'}
+        // isNotBackground={isNotBackground}
+        // isHiddenNavBar={false}
+        style={{ backgroundColor: 'white', flex: 1, }}
+    >
+        {/* <SafeAreaView style={{ flex: 1, backgroundColor: 'blue' }}> */}
             <Text style={{marginTop:0,color:'red'}} onPress={()=>nav.navigate('Home')}>section页</Text>
             <Text style={{marginTop:50,color:'red'}} onPress={()=>nav.navigate('Test')}>test页</Text>
             
-        </SafeAreaView>
+        {/* </SafeAreaView> */}
           
-        // </BaseContainer>
+        </BaseContainer>
         )
     }
 

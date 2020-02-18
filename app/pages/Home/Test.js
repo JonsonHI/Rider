@@ -2,7 +2,7 @@
  * @Author: Jonson 
  * @Date: 2020-02-09 15:46:32 
  * @Last Modified by: Jonson
- * @Last Modified time: 2020-02-17 09:37:52
+ * @Last Modified time: 2020-02-17 11:11:06
  */
 /*
  * @Author: Jonson 
@@ -84,7 +84,7 @@ export default class Test extends Component {
                 rightView={this.rightView()}
                 statusBarStyle={'light-content'}
                 onWillFocus={payload => {
-                    console.log('Login页面将要获得焦点', payload);
+                    console.log('页面将要获得焦点', payload);
                 }}
             >
                 {
