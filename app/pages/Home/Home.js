@@ -2,7 +2,7 @@
  * @Author: Jonson 
  * @Date: 2020-02-09 15:46:10 
  * @Last Modified by: Jonson
- * @Last Modified time: 2020-02-16 22:24:44
+ * @Last Modified time: 2020-02-18 14:50:03
  */
 
 import React, { Component, PureComponent, PropTypes } from "react";
@@ -17,8 +17,17 @@ import {
 import { action, computed, observable, toJS } from "mobx";
 import BaseContainer from '../../components/BaseContainer'
 import { RouteHelper } from '../../components/NavigationHelp/RouteHelper'
-import { CountDown } from "../../components";
+import { CountDown,BouncingPreloader } from "../../components";
 import { ENVS } from '../../config'
+
+const icons = [
+    "https://www.shareicon.net/data/256x256/2016/05/04/759946_bar_512x512.png",
+    "https://www.shareicon.net/data/256x256/2016/05/04/759908_food_512x512.png",
+    "https://www.shareicon.net/data/256x256/2016/05/04/759956_food_512x512.png",
+    "https://www.shareicon.net/data/256x256/2016/05/04/759954_food_512x512.png",
+    "https://www.shareicon.net/data/256x256/2016/05/04/759906_food_512x512.png",
+    "https://www.shareicon.net/data/256x256/2016/05/04/759921_food_512x512.png"
+];
 
 // @setStatusBar({
 //     barStyle: 'dark-content',
@@ -32,7 +41,7 @@ export default class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            isLoading: true
         };
 
     }
@@ -40,7 +49,15 @@ export default class Home extends Component {
 
 
     componentDidMount() {
-
+        this.timer = setTimeout(
+            () => {this.setState({isLoading:false})
+                // HomeStore.isLoading = true
+            },
+            2000
+          );
+    }
+    componentDidUpdate(){
+        
     }
 
 
@@ -53,26 +70,36 @@ export default class Home extends Component {
                 statusBarStyle={'dark-content'}
                 isNotBackground={isNotBackground}
                 // isHiddenNavBar={false}
-                style={{ backgroundColor: 'red', flex: 1, }}
+                style={{ flex: 1, }}
             >
-                <Text style={{ marginTop: 100 }} onPress={() => nav.navigate('section')}>首页</Text>
-                <Text style={{ marginTop: 100 }} onPress={() => RouteHelper.navigate('section', null)}>RouteHelper</Text>
-                <Text style={{ marginTop: 100 }} onPress={() => {
-                    console.log(ENVS.api_url)
-                    ENVS.api_url = 'SSS';
-                    console.log(this.type)
-                }
-                }>{ENVS.api_url}</Text>
+                {
+                    this.state.isLoading ?
+                        <BouncingPreloader />
+                        :
+                        <View>
+                            <Text style={{ marginTop: 100 }} onPress={() => nav.navigate('Test')}>首页</Text>
+                            <Text style={{ marginTop: 100 }} onPress={() => RouteHelper.navigate('Test', null)}>RouteHelper</Text>
+                            <Text style={{ marginTop: 100 }} onPress={() => {
+                                console.log(ENVS.api_url)
+                                ENVS.api_url = 'SSS';
+                                console.log(this.type)
+                            }
+                            }>{ENVS.api_url}</Text>
 
-                <CountDown frameStyle={{ top: 10, left: 50, width: 120, height: 36}}
-                    beginText='获取验证码'
-                    endText='再次获取验证码'
-                    count={60}
-                    pressAction={() => { this.countDownButton.startCountDown() }}
-                    changeWithCount={(count) => count + 's后重新获取'}
-                    id='register'
-                    ref={(e) => { this.countDownButton = e }}
-                />
+                            <CountDown frameStyle={{ top: 10, left: 50, width: 120, height: 36 }}
+                                beginText='获取验证码'
+                                endText='再次获取验证码'
+                                count={60}
+                                pressAction={() => { this.countDownButton.startCountDown() }}
+                                changeWithCount={(count) => count + 's后重新获取'}
+                                id='register'
+                                ref={(e) => { this.countDownButton = e }}
+                            />
+                        </View>
+                }
+
+
+
             </BaseContainer>
         )
     }

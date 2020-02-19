@@ -13,7 +13,7 @@
         ref={(e)=>{this.countDownButton=e}}
         />
  * 
- * @Last Modified time: 2020-02-16 00:05:32
+ * @Last Modified time: 2020-02-18 14:51:50
  */
 import React, { Component, PropTypes } from 'react';
 import {
@@ -60,7 +60,7 @@ export default class CountDown extends Component {
         activeTextStyle: {},             //active情况下按钮里面文字的样式      (有默认,见底部styles)
     }
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.shouldSetState = true;
         this.setState({
             btnTitle: this.props.beginText,
