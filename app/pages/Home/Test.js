@@ -2,7 +2,7 @@
  * @Author: Jonson 
  * @Date: 2020-02-09 15:46:32 
  * @Last Modified by: Jonson
- * @Last Modified time: 2020-02-17 11:11:06
+ * @Last Modified time: 2020-02-25 12:01:16
  */
 /*
  * @Author: Jonson 
@@ -92,6 +92,7 @@ export default class Test extends Component {
                 }
                 {/* <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}> */}
                 <Text style={{ marginTop: 100, color: 'red' }} onPress={() => nav.goBack(null)}>测试页</Text>
+                <Text style={{ marginTop: 100, color: 'red' }} onPress={() => nav.navigate('Seller')}>跳转</Text>
                 <Text style={{ marginTop: 100, color: 'red' }} onPress={() => 
                     MToast.show({
                         data: '暂时无服务',

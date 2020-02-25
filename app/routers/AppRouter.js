@@ -2,7 +2,7 @@
  * @Author: Jonson 
  * @Date: 2020-02-09 14:00:12 
  * @Last Modified by: Jonson
- * @Last Modified time: 2020-02-18 14:48:08
+ * @Last Modified time: 2020-02-25 11:59:33
  */
 
 
@@ -19,17 +19,31 @@ import Home from '../pages/Home/Home'
 import Test from '../pages/Home/Test'
 import Seller from '../pages/Home/Seller'
 import Section from '../pages/Home/section'
+import GroupList from '../pages/Home/GroupList'
 
-const IOS_MODAL_ROUTES = ['Home'];
+const IOS_MODAL_ROUTES = ['Test'];
 
-const dynamicModalTransition = (transitionProps, prevTransitionProps) => {
-  const isModal = IOS_MODAL_ROUTES.some(
-    screenName =>
-      screenName === transitionProps.scene.route.routeName ||
-      (prevTransitionProps && screenName === prevTransitionProps.scene.route.routeName)
-  );
-  return StackViewTransitionConfigs.defaultTransitionConfig(transitionProps, prevTransitionProps, isModal);
-};
+// const dynamicModalTransition = (transitionProps, prevTransitionProps) => {
+//   const isModal = IOS_MODAL_ROUTES.some(
+//     screenName =>
+//       screenName === transitionProps.scene.route.routeName ||
+//       (prevTransitionProps && screenName === prevTransitionProps.scene.route.routeName)
+//   );
+//   return StackViewTransitionConfigs.defaultTransitionConfig(transitionProps, prevTransitionProps, isModal);
+// };
+
+const TransitionConfiguration = () => ({
+  screenInterpolator: (sceneProps) => {
+      const {scene} = sceneProps;
+      const {route} = scene;
+      // 获取屏幕切换时新屏幕的参数
+      const params = route.params || {};
+      // 看看参数中是否有 transition 参数，有则使用，否则使用缺省值 forHorizontal
+      // forHorizontal 表示从右向左滑出
+      const transition = params.transition || 'forHorizontal';
+      return StackViewStyleInterpolator[transition](sceneProps);
+  },
+});
 
 const MyTab = createBottomTabNavigator(
   {
@@ -166,6 +180,9 @@ export const AppRouter = createStackNavigator(
     Seller: {
       screen: Seller,
     },
+    GroupList: {
+      screen: GroupList,
+    },
     // Section: {
     //   screen: Section,
     // },
@@ -185,11 +202,12 @@ export const AppRouter = createStackNavigator(
       headerTransparent: true
     }),
     // headerMode: 'screen',
-    transitionConfig: iOS
-      ? dynamicModalTransition
-      : () => ({
-        screenInterpolator: StackViewStyleInterpolator.forHorizontal
-      }),
+    // transitionConfig: iOS
+    //   ? dynamicModalTransition
+    //   : () => ({
+    //     screenInterpolator: StackViewStyleInterpolator.forHorizontal
+    //   }),
+    transitionConfig:TransitionConfiguration,
     // transitionConfig: iOS ? dynamicModalTransition : StackViewStyleInterpolator.forHorizontal,
     cardOverlayEnabled: true,
     // transparentCard: true,

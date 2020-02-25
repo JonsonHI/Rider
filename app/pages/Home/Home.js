@@ -2,7 +2,7 @@
  * @Author: Jonson 
  * @Date: 2020-02-09 15:46:10 
  * @Last Modified by: Jonson
- * @Last Modified time: 2020-02-18 14:50:03
+ * @Last Modified time: 2020-02-25 11:58:29
  */
 
 import React, { Component, PureComponent, PropTypes } from "react";
@@ -53,7 +53,7 @@ export default class Home extends Component {
             () => {this.setState({isLoading:false})
                 // HomeStore.isLoading = true
             },
-            2000
+            500
           );
     }
     componentDidUpdate(){
@@ -77,8 +77,9 @@ export default class Home extends Component {
                         <BouncingPreloader />
                         :
                         <View>
-                            <Text style={{ marginTop: 100 }} onPress={() => nav.navigate('Test')}>首页</Text>
+                            <Text style={{ marginTop: 100 }} onPress={() => nav.navigate('Test',{transition: 'forVertical'})}>首页</Text>
                             <Text style={{ marginTop: 100 }} onPress={() => RouteHelper.navigate('Test', null)}>RouteHelper</Text>
+                            <Text style={{ marginTop: 50 }} onPress={() => RouteHelper.navigate('GroupList', null)}>GroupList</Text>
                             <Text style={{ marginTop: 100 }} onPress={() => {
                                 console.log(ENVS.api_url)
                                 ENVS.api_url = 'SSS';
