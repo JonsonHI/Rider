@@ -2,7 +2,7 @@
  * @Author: Jonson 
  * @Date: 2020-02-09 14:00:12 
  * @Last Modified by: Jonson
- * @Last Modified time: 2020-02-26 10:51:03
+ * @Last Modified time: 2020-02-26 13:50:50
  */
 
 
@@ -19,6 +19,7 @@ import Test from '../pages/Home/Test'
 import Seller from '../pages/Home/Seller'
 import Section from '../pages/Home/section'
 import GroupList from '../pages/Home/GroupList'
+import Login from '../pages/Login' //登录页面
 
 const IOS_MODAL_ROUTES = ['Test'];
 
@@ -173,28 +174,26 @@ export const AppRouter = createStackNavigator(
       screen: MyTab
     },
     //登录
+    Login: {
+      screen: Login,
+      navigationOptions: () => ({
+        header: null,
+        gesturesEnabled: Platform.OS === 'ios' ? false : true
+      })
+      
+    },
     Home: {
       screen: Home,
       
     },
     Test: {
       screen: Test,
-      navigationOptions: () => ({
-        header: null,
-        // gesturesEnabled: Platform.OS === 'ios' ? false : true
-        // gestureResponseDistance:-100
-      })
     },
     Seller: {
       screen: Seller,
     },
     GroupList: {
       screen: GroupList,
-      navigationOptions: () => ({
-        header: null,
-        // gesturesEnabled: Platform.OS === 'ios' ? false : true
-        // gestureResponseDistance:-100
-      })
     },
     Section: {
       screen: Section,

@@ -51,6 +51,9 @@ target 'Rider' do
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
   pod 'RNScreens', :path => '../node_modules/react-native-screens'
+  #极光推送
+  pod 'JCore', :path => '../node_modules/jcore-react-native'
+  pod 'JPush', :path => '../node_modules/jpush-react-native'
 
 #  target 'RiderTests' do
 #    inherit! :search_paths

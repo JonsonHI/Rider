@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* RiderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* RiderTests.m */; };
+		0F5904DB24063DDA000F1144 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F6B2B2A23EA7A26005A928A /* libz.tbd */; };
+		0F5904DD24063DE4000F1144 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5904DC24063DE4000F1144 /* libresolv.tbd */; };
+		0F5904DF24063DED000F1144 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5904DE24063DED000F1144 /* UserNotifications.framework */; };
+		0F5904E124063E40000F1144 /* libJPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5904E024063E40000F1144 /* libJPush.a */; };
+		0F5904E324063E45000F1144 /* libJPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5904E224063E45000F1144 /* libJPush.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -42,6 +47,10 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* RiderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RiderTests.m; sourceTree = "<group>"; };
 		0826ED1FC71E2B16A0F46A5E /* Pods-Rider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rider.debug.xcconfig"; path = "Target Support Files/Pods-Rider/Pods-Rider.debug.xcconfig"; sourceTree = "<group>"; };
+		0F5904DC24063DE4000F1144 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		0F5904DE24063DED000F1144 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		0F5904E024063E40000F1144 /* libJPush.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libJPush.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F5904E224063E45000F1144 /* libJPush.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libJPush.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F6B2B2A23EA7A26005A928A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		13B07F961A680F5B00A75B9A /* Rider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Rider/AppDelegate.h; sourceTree = "<group>"; };
@@ -70,6 +79,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F5904E324063E45000F1144 /* libJPush.a in Frameworks */,
+				0F5904E124063E40000F1144 /* libJPush.a in Frameworks */,
+				0F5904DF24063DED000F1144 /* UserNotifications.framework in Frameworks */,
+				0F5904DD24063DE4000F1144 /* libresolv.tbd in Frameworks */,
+				0F5904DB24063DDA000F1144 /* libz.tbd in Frameworks */,
 				9AEA41E6BA347AE9F091EB3B /* libPods-Rider.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,6 +139,10 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F5904E224063E45000F1144 /* libJPush.a */,
+				0F5904E024063E40000F1144 /* libJPush.a */,
+				0F5904DE24063DED000F1144 /* UserNotifications.framework */,
+				0F5904DC24063DE4000F1144 /* libresolv.tbd */,
 				0F6B2B2A23EA7A26005A928A /* libz.tbd */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,

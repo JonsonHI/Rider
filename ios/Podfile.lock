@@ -6,7 +6,7 @@ PODS:
     - AMapFoundation (~> 1.6.1)
   - Base64 (1.1.2)
   - boost-for-react-native (1.63.0)
-  - CodePush (6.0.0):
+  - CodePush (6.1.0):
     - Base64 (~> 1.1)
     - JWT (~> 3.0.0-beta.7)
     - React
@@ -30,6 +30,10 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
+  - JCore (1.7.5):
+    - React
+  - JPush (2.7.5):
+    - React
   - JWT (3.0.0-beta.12):
     - Base64 (~> 1.1.2)
   - QBImagePickerController (3.4.0)
@@ -237,7 +241,7 @@ PODS:
     - React-cxxreact (= 0.61.5)
     - React-jsi (= 0.61.5)
     - ReactCommon/jscallinvoker (= 0.61.5)
-  - RNGestureHandler (1.5.3):
+  - RNGestureHandler (1.6.0):
     - React
   - RNScreens (1.0.0-alpha.23):
     - React
@@ -255,6 +259,8 @@ DEPENDENCIES:
   - FBReactNativeSpec (from `../node_modules/react-native/Libraries/FBReactNativeSpec`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - JCore (from `../node_modules/jcore-react-native`)
+  - JPush (from `../node_modules/jpush-react-native`)
   - QBImagePickerController (from `../node_modules/react-native-image-crop-picker/ios/QBImagePicker`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
@@ -309,6 +315,10 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/Folly.podspec"
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
+  JCore:
+    :path: "../node_modules/jcore-react-native"
+  JPush:
+    :path: "../node_modules/jpush-react-native"
   QBImagePickerController:
     :path: "../node_modules/react-native-image-crop-picker/ios/QBImagePicker"
   RCTRequired:
@@ -370,12 +380,14 @@ SPEC CHECKSUMS:
   AMapLocation: b4162db67f813508a14ee7e05c7ee4073785221d
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  CodePush: 67f488101c41e13e594e9c2714b95dd8bffa6cb4
+  CodePush: 559674670649e390ba1df2d71ad7652e03d679e8
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   FBLazyVector: aaeaf388755e4f29cd74acbc9e3b8da6d807c37f
   FBReactNativeSpec: 118d0d177724c2d67f08a59136eb29ef5943ec75
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
+  JCore: 8ce6fb6c252d3ca11078ec4bef2427d12ddc4142
+  JPush: 9086549521c9031dd9ee25ed36860581f7a5c5a6
   JWT: 9b5c05abbcc1a0e69c3c91e1655b3387fc7e581d
   QBImagePickerController: d54cf93db6decf26baf6ed3472f336ef35cae022
   RCTRequired: b153add4da6e7dbc44aebf93f3cf4fcae392ddf1
@@ -399,13 +411,13 @@ SPEC CHECKSUMS:
   React-RCTText: 9ccc88273e9a3aacff5094d2175a605efa854dbe
   React-RCTVibration: a49a1f42bf8f5acf1c3e297097517c6b3af377ad
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
-  RNGestureHandler: 02905abe54e1f6e59c081a10b4bd689721e17aa6
+  RNGestureHandler: dde546180bf24af0b5f737c8ad04b6f3fa51609a
   RNScreens: f28b48b8345f2f5f39ed6195518291515032a788
   RNSpringScrollView: 8b0af44fda8b131d845b93bf5b1d0710152e4e61
   RNSVG: 67f1f12dae2cef6ed59a42cae74a6b8f5a9e7b46
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
-PODFILE CHECKSUM: 2290eb426e6b0e43c6204ea21a031f53d27f5bd0
+PODFILE CHECKSUM: 2c5728df991b9ef9bf122f2916f491c875738915
 
 COCOAPODS: 1.8.4

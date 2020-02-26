@@ -2,7 +2,7 @@
  * @Author: Jonson 
  * @Date: 2020-02-09 15:46:32 
  * @Last Modified by: Jonson
- * @Last Modified time: 2020-02-26 10:58:52
+ * @Last Modified time: 2020-02-26 11:05:43
  */
 /*
  * @Author: Jonson 
@@ -38,7 +38,7 @@ let lastBackPressed: number;
 @observer
 export default class Test extends Component {
 
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -61,7 +61,7 @@ export default class Test extends Component {
         }
     }
     onBackAndroid = () => {
-        
+
         if (lastBackPressed && lastBackPressed + 2000 >= Date.now()) {
             // 最近2秒内按过back键，可以退出应用。
             return BackHandler.exitApp();
@@ -72,29 +72,30 @@ export default class Test extends Component {
 
     }
 
-    rightView = () =>{
-        return(
-            <View style={{flexDirection:'row'}}>
-                <Text>111</Text> 
+    rightView = () => {
+        return (
+            <View style={{ flexDirection: 'row' }}>
+                <Text>111</Text>
                 <Text>222</Text>
             </View>
         )
     }
 
-    isLoading = () =>{
-        const {HomeStore} = this.props
+    isLoading = () => {
+        const { HomeStore } = this.props
         this.timer = setTimeout(
-            () => { HomeStore.isLoading = false
+            () => {
+            HomeStore.isLoading = false
                 // HomeStore.isLoading = true
             },
             500
-          );
+        );
     }
 
 
     render() {
         // console.log(nav)
-        const {HomeStore} =this.props
+        const { HomeStore } = this.props
         return (
             <BaseContainer
                 title={'第三页'}
@@ -114,7 +115,7 @@ export default class Test extends Component {
                 {/* <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}> */}
                 <Text style={{ marginTop: 100, color: 'red' }} onPress={() => nav.goBack(null)}>测试页</Text>
                 <Text style={{ marginTop: 100, color: 'red' }} onPress={() => nav.navigate('Seller')}>跳转</Text>
-                <Text style={{ marginTop: 100, color: 'red' }} onPress={() => 
+                <Text style={{ marginTop: 100, color: 'red' }} onPress={() =>
                     MToast.show({
                         data: '暂时无服务',
                         // textColor: toastTextColor,
@@ -126,7 +127,7 @@ export default class Test extends Component {
                 }>测试页</Text>
 
                 {/* </SafeAreaView>  */}
-             </BaseContainer>
+            </BaseContainer>
         )
     }
 

@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-decorators": "^7.8.3",
+    "jcore-react-native": "^1.7.5",
     "jetifier": "^1.6.5",
+    "jpush-react-native": "^2.7.5",
     "mobx": "^5.15.4",
     "mobx-react": "^6.1.4",
     "react": "16.9.0",
