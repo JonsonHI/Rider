@@ -2,7 +2,7 @@
  * @Author: Jonson 
  * @Date: 2020-02-09 15:46:32 
  * @Last Modified by: Jonson
- * @Last Modified time: 2020-02-17 15:38:01
+ * @Last Modified time: 2020-02-26 09:42:32
  */
 /*
  * @Author: Jonson 
@@ -52,7 +52,7 @@ export default class Section extends Component {
         // console.log(nav)
        return(
         <BaseContainer
-        title={'首页'}
+        title={'section'}
         isTopNavigator={true}
         statusBarStyle={'dark-content'}
         // isNotBackground={isNotBackground}

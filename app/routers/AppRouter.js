@@ -2,16 +2,15 @@
  * @Author: Jonson 
  * @Date: 2020-02-09 14:00:12 
  * @Last Modified by: Jonson
- * @Last Modified time: 2020-02-25 11:59:33
+ * @Last Modified time: 2020-02-26 10:51:03
  */
 
 
 import React from 'react';
 import { createBottomTabNavigator, createStackNavigator, StackViewTransitionConfigs, createSwitchNavigator, createAppContainer } from 'react-navigation';
 
-
 import StackViewStyleInterpolator from 'react-navigation-stack/src/views/StackView/StackViewStyleInterpolator';
-import {StatusBar, Image, Platform } from 'react-native';
+import {I18nManager,StatusBar, Image, Platform, Easing, Animated  } from 'react-native';
 import {configRoute} from '../components/NavigationHelp/addToRouteStack'
 
 //所有controller
@@ -23,14 +22,14 @@ import GroupList from '../pages/Home/GroupList'
 
 const IOS_MODAL_ROUTES = ['Test'];
 
-// const dynamicModalTransition = (transitionProps, prevTransitionProps) => {
-//   const isModal = IOS_MODAL_ROUTES.some(
-//     screenName =>
-//       screenName === transitionProps.scene.route.routeName ||
-//       (prevTransitionProps && screenName === prevTransitionProps.scene.route.routeName)
-//   );
-//   return StackViewTransitionConfigs.defaultTransitionConfig(transitionProps, prevTransitionProps, isModal);
-// };
+const dynamicModalTransition = (transitionProps, prevTransitionProps) => {
+  const isModal = IOS_MODAL_ROUTES.some(
+    screenName =>
+      screenName === transitionProps.scene.route.routeName ||
+      (prevTransitionProps && screenName === prevTransitionProps.scene.route.routeName)
+  );
+  return StackViewTransitionConfigs.defaultTransitionConfig(transitionProps, prevTransitionProps, isModal);
+};
 
 const TransitionConfiguration = () => ({
   screenInterpolator: (sceneProps) => {
@@ -42,7 +41,14 @@ const TransitionConfiguration = () => ({
       // forHorizontal 表示从右向左滑出
       const transition = params.transition || 'forHorizontal';
       return StackViewStyleInterpolator[transition](sceneProps);
+      // return dynamicModalTransition;
   },
+  transitionSpec: {
+    duration: 300,
+    easing: Easing.out(Easing.poly(4)),
+    timing: Animated.timing,
+},
+
 });
 
 const MyTab = createBottomTabNavigator(
@@ -169,23 +175,30 @@ export const AppRouter = createStackNavigator(
     //登录
     Home: {
       screen: Home,
-      navigationOptions: () => ({
-        header: null,
-        gesturesEnabled: Platform.OS === 'ios' ? false : true
-      })
+      
     },
     Test: {
       screen: Test,
+      navigationOptions: () => ({
+        header: null,
+        // gesturesEnabled: Platform.OS === 'ios' ? false : true
+        // gestureResponseDistance:-100
+      })
     },
     Seller: {
       screen: Seller,
     },
     GroupList: {
       screen: GroupList,
+      navigationOptions: () => ({
+        header: null,
+        // gesturesEnabled: Platform.OS === 'ios' ? false : true
+        // gestureResponseDistance:-100
+      })
     },
-    // Section: {
-    //   screen: Section,
-    // },
+    Section: {
+      screen: Section,
+    },
 
   }),
   {
@@ -199,9 +212,8 @@ export const AppRouter = createStackNavigator(
       },
       header: null,
       gesturesEnabled: true,
-      headerTransparent: true
+      headerTransparent: false
     }),
-    // headerMode: 'screen',
     // transitionConfig: iOS
     //   ? dynamicModalTransition
     //   : () => ({
@@ -209,7 +221,8 @@ export const AppRouter = createStackNavigator(
     //   }),
     transitionConfig:TransitionConfiguration,
     // transitionConfig: iOS ? dynamicModalTransition : StackViewStyleInterpolator.forHorizontal,
-    cardOverlayEnabled: true,
+    // transitionConfig: StackViewStyleInterpolator.forVertical,
+    cardOverlayEnabled: false,
     // transparentCard: true,
     // headerTransitionPreset: 'fade-in-place',
     // headerMode: 'float',

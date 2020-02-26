@@ -2,7 +2,7 @@
  * @Author: Jonson 
  * @Date: 2020-02-09 15:46:32 
  * @Last Modified by: Jonson
- * @Last Modified time: 2020-02-25 12:01:16
+ * @Last Modified time: 2020-02-26 10:58:52
  */
 /*
  * @Author: Jonson 
@@ -18,6 +18,8 @@ import {
     View,
     SafeAreaView,
     Dimensions,
+    BackHandler,
+    ToastAndroid
 } from "react-native";
 const { width, height } = Dimensions.get('window');
 // import {BaseContainer} from '../../components'
@@ -31,12 +33,12 @@ import MToast from '../../utils/toast/Toast';
 //     // translucent: true,
 //     backgroundColor: 'red'
 // })
+let lastBackPressed: number;
 @inject("HomeStore")
 @observer
 export default class Test extends Component {
 
-
-
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -48,6 +50,25 @@ export default class Test extends Component {
 
 
     componentDidMount() {
+        if (Platform.OS === 'android') {
+            BackHandler.addEventListener('handwareBackPress', this.onBackAndroid)
+        }
+    }
+
+    componentWillUnmount() {
+        if (Platform.OS === 'android') {
+            BackHandler.removeEventListener('handwareBackPress', this.onBackAndroid)
+        }
+    }
+    onBackAndroid = () => {
+        
+        if (lastBackPressed && lastBackPressed + 2000 >= Date.now()) {
+            // 最近2秒内按过back键，可以退出应用。
+            return BackHandler.exitApp();
+        }
+        lastBackPressed = Date.now();
+        // ToastAndroid.show('再按一次退出应用', ToastAndroid.SHORT);
+        return BackHandler.exitApp();
 
     }
 
@@ -105,8 +126,7 @@ export default class Test extends Component {
                 }>测试页</Text>
 
                 {/* </SafeAreaView>  */}
-
-            </BaseContainer>
+             </BaseContainer>
         )
     }
 

@@ -2,7 +2,7 @@
  * @Author: Jonson 
  * @Date: 2020-02-09 13:59:56 
  * @Last Modified by: Jonson
- * @Last Modified time: 2020-02-15 18:46:05
+ * @Last Modified time: 2020-02-26 11:03:57
  */
 
 import React from 'react';
@@ -51,7 +51,7 @@ export const AuthLoadingRouter = createAppContainer(
     {
       AuthLoading: AuthLoadingScreen,
       AppRouter: AppRouter,
-      AuthRouter: AuthRouter
+      // AuthRouter: AuthRouter
     },
     {
       initialRouteName: 'AuthLoading'
