@@ -2,7 +2,7 @@
  * @Author: Jonson 
  * @Date: 2020-02-09 15:46:10 
  * @Last Modified by: Jonson
- * @Last Modified time: 2020-02-26 11:30:53
+ * @Last Modified time: 2020-02-26 15:43:52
  */
 
 import React, { Component, PureComponent, PropTypes } from "react";
@@ -17,8 +17,7 @@ import {
 import { action, computed, observable, toJS } from "mobx";
 import BaseContainer from '../../components/BaseContainer'
 import { RouteHelper } from '../../components/NavigationHelp/RouteHelper'
-import { CountDown,BouncingPreloader } from "../../components";
-import { ENVS } from '../../config'
+import {isNumber, getBool, isArray} from '../../utils/CommonUtils'
 
 
 export default class Home extends Component {
@@ -35,12 +34,15 @@ export default class Home extends Component {
 
 
     componentDidMount() {
-
+        
     }
     componentDidUpdate(){
         
     }
 
+    isNumber = () =>{
+        alert(isArray([':','']))
+    }
 
     render() {
         // console.log(RouteHelper)
@@ -53,7 +55,9 @@ export default class Home extends Component {
                 // isHiddenNavBar={false}
                 style={{ flex: 1, }}
             >
-                <Text>登录页</Text>
+                <Text style={{marginTop:50}}
+                    onPress={()=> this.isNumber()}
+                >登录页</Text>
 
 
 
