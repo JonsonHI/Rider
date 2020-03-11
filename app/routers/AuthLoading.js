@@ -2,7 +2,7 @@
  * @Author: Jonson 
  * @Date: 2020-02-09 13:59:56 
  * @Last Modified by: Jonson
- * @Last Modified time: 2020-02-26 13:38:44
+ * @Last Modified time: 2020-02-26 16:07:21
  */
 
 import React from 'react';
@@ -69,8 +69,13 @@ export default class AuthLoadingScreen extends React.Component<Props> {
     let token = 1;
     if(token){
       this.props.navigation.navigate('Login')
+    }else{
+      this.props.navigation.navigate('AppRouter')
     }
-    this.props.navigation.navigate('AppRouter')
+    setTimeout(() => {
+      alert('111')
+  }, 2000);
+    
     
   }
 
